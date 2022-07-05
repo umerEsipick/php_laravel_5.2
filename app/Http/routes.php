@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('admin.index');
-});
+// Route::get('/', function () {
+//     return view('store.main');
+// });
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +27,13 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+    
+    Route::get('/', 'StoreController@index');
+    Route::controller('store', 'StoreController');
+    Route::resource('category', 'CategoryController');
+    Route::resource('post', 'PostController');
+    Route::resource('user', 'UserController');
+    Route::auth();
+    Route::get('/home', 'HomeController@index');    
 });
+
