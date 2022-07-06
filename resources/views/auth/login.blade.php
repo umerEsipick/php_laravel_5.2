@@ -1,6 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+
+@if (Session::has('flash_message'))
+<div class="alert alert-success">
+    <em>{!! session('flash_message') !!}</em>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+</div>
+@endif
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

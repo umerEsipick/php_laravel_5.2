@@ -35,5 +35,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('user', 'UserController');
     Route::auth();
     Route::get('/home', 'HomeController@index');    
+    Route::controller('mail', 'MailController');
 });
 
